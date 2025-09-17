@@ -23,12 +23,6 @@ return {
 			require('mini.move').setup()
 		end,
 	},
-  { 'nvim-mini/mini.ai',
-		version = false,
-		config = function()
-			require('mini.ai').setup()
-		end,
-	},
   { 'nvim-mini/mini.indentscope',
 		version = false,
 		config = function()

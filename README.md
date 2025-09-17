@@ -1,22 +1,22 @@
 # Editor
 
-A basic neovim config with just Lazy package manager and a theme. Also, some options and keybinds set.
+A basic Neovim setup with just the Lazy package manager and a theme. Also, some options and keyboard shortcuts are defined.
 
-It aims to be a cross-system (Linux/Windows) config
+This is intended to be a multi-system (Linux/Windows) setup.
 
 ## Linux
 
-Clone this repo with the following command:
+Clone repo with the following command:
 
     git clone https://github.com/delpantheone/editor.git ~/.config/nvim
 
 ## Windows
 
-After running the command above, create a "init.lua" file on the following directory:
+After running the above command, create an "init.lua" file in the following directory:
 
 "%USERPROFILE%\Appdata\Local\nvim\"
 
-It should have the following content inside:
+It should have the following contents:
 
     local home = os.getenv("HOME") or os.getenv("USERPROFILE")
     local config_path = home .. "/.config/nvim"
