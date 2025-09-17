@@ -23,7 +23,4 @@ vim.o.undofile = true
 vim.o.signcolumn = "yes"
 vim.o.lazyredraw = false
 vim.o.autoread = true
--- vim.o.diffopt:append("vertical")
--- vim.o.diffopt:append("algorithm:patience")
--- vim.o.diffopt:append("linematch:60")
 vim.o.encoding = "UTF-8"
