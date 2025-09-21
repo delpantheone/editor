@@ -1,32 +1,22 @@
 return {
   { 'nvim-mini/mini.notify',
 		version = false,
-		config = function()
-			require('mini.notify').setup()
-		end,
+		opts = {},
 	},
   { 'nvim-mini/mini.surround',
 		version = false,
-		config = function()
-			require('mini.surround').setup()
-		end,
+		opts = {},
 	},
   { 'nvim-mini/mini.pairs',
 		version = false,
-		config = function()
-			require('mini.pairs').setup()
-		end,
+		opts = {},
 	},
   { 'nvim-mini/mini.move',
 		version = false,
-		config = function()
-			require('mini.move').setup()
-		end,
+		opts = {},
 	},
   { 'nvim-mini/mini.indentscope',
 		version = false,
-		config = function()
-			require('mini.indentscope').setup()
-		end,
+		opts = {},
 	},
 }

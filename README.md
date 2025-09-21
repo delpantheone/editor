@@ -1,6 +1,6 @@
 # Editor
 
-A basic Neovim setup with just the Lazy package manager and a theme. Also, some options and keyboard shortcuts are defined.
+My neovim setup with Lazy package manager and some plugins. Also, some options and keyboard shortcuts are defined.
 
 This is intended to be a multi-system (Linux/Windows) setup.
 
