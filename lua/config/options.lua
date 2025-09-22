@@ -24,3 +24,4 @@ vim.o.signcolumn = "yes"
 vim.o.lazyredraw = false
 vim.o.autoread = true
 vim.o.encoding = "UTF-8"
+vim.o.winborder = "rounded"
