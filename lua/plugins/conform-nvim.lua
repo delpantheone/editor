@@ -4,24 +4,21 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			typescript = { "prettierd" },
-			javascript = { "prettierd" },
+			typescript = { "biome" },
+			javascript = { "biome" },
 			html = { "prettierd" },
-			json = { "prettierd" },
-			css = { "prettierd" },
+			json = { "biome" },
+			css = { "biome" },
 			markdown = { "prettierd" },
 			python = { "black" },
 		},
-		-- default_format_opts = {
-		-- 	lsp_format = "fallback",
-		-- },
 		format_on_save = {
 			lsp_format = "fallback",
 			timeout_ms = 500,
 		},
 	},
 
-	vim.keymap.set({ "n", "v" }, "<leader>f", function()
+	vim.keymap.set({ "n", "v" }, "<leader>cf", function()
 		require("conform").format({
 			lsp_fallback = true,
 			async = false,

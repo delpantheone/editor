@@ -3,9 +3,10 @@ return {
 	opts = {
 		ensure_installed = {
 			"stylua",
-			"eslint_d",
+			"biome",
 			"prettierd",
 			"black",
+			"pylint",
 		},
 	},
 }

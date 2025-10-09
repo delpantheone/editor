@@ -38,15 +38,38 @@ local makeprgs = {
 }
 
 vim.api.nvim_create_autocmd("QuickFixCmdPre", {
-  pattern = "make",
-  callback = function()
-    vim.fn.setqflist({}, 'r') -- Clear list before execution
-  end,
+	pattern = "make",
+	callback = function()
+		vim.fn.setqflist({}, "r") -- Clear list before execution
+	end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = vim.tbl_keys(makeprgs),
 	callback = function(event)
 		vim.bo.makeprg = makeprgs[event.match]
+	end,
+})
+
+-- Diagnostics
+
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = "●",
+		spacing = 2,
+		source = "if_many",
+	},
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+})
+
+-- FullScreen helping buffers
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "help",
+	callback = function()
+		vim.cmd("only")
 	end,
 })
