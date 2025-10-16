@@ -14,9 +14,13 @@ return {
 				"markdown_inline",
 				"typescript",
 				"javascript",
+				"jsdoc",
+				"luadoc",
 				"python",
+				"pymanifest",
 				"html",
 				"css",
+				"sql",
 			},
 			auto_install = false,
 			highlight = {
