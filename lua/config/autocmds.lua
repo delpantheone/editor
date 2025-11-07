@@ -5,7 +5,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = highlight_yank_group,
 	pattern = "*",
 	callback = function()
-		vim.highlight.on_yank({
+		vim.hl.on_yank({
 			higroup = "IncSearch",
 			timeout = 200,
 		})
@@ -67,9 +67,9 @@ vim.diagnostic.config({
 
 -- FullScreen helping buffers
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "help",
-	callback = function()
-		vim.cmd("only")
-	end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "help",
+-- 	callback = function()
+-- 		vim.cmd("only")
+-- 	end,
+-- })

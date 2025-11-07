@@ -9,7 +9,14 @@ return {
 		},
 		completion = { documentation = { auto_show = false } },
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "buffer", "path" }, --  "snippets" },
+			per_filetype = {
+				sql = { "dadbod", "snippets", "buffer" },
+			},
+			-- add vim-dadbod-completion to your completion providers
+			providers = {
+				dadbod = { module = "vim_dadbod_completion.blink" },
+			},
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},

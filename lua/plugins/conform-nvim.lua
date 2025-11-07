@@ -11,6 +11,7 @@ return {
 			css = { "biome" },
 			markdown = { "prettierd" },
 			python = { "black" },
+			sql = { "sqruff" },
 		},
 		format_on_save = {
 			lsp_format = "fallback",

@@ -7,6 +7,7 @@ return {
 			"prettierd",
 			"black",
 			"pylint",
+			"sqruff",
 		},
 	},
 }

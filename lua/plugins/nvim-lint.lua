@@ -13,6 +13,7 @@ return {
 			javascriptreact = { "biome" },
 			typescriptreact = { "biome" },
 			python = { "pylint" },
+			sql = { "sqruff" },
 		}
 
 		lint.linters = {
@@ -27,6 +28,14 @@ return {
 			pylint = {
 				cmd = "pylint",
 				args = { "--output-format=text", "--score=no", "$FILENAME" },
+				stdin = false,
+				stream = "stdout",
+				ignore_exitcode = true,
+				parser = require("lint.parser").from_errorformat("%f:%l:c: [%t%n] %m"),
+			},
+			sqruff = {
+				cmd = "sqruff",
+				args = { "lint", "$FILENAME" },
 				stdin = false,
 				stream = "stdout",
 				ignore_exitcode = true,

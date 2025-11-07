@@ -21,3 +21,24 @@ vim.keymap.set("n", "<C-Right>", "<Cmd>vertical resize -2<CR>")
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+-- Terminal
+
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>tt",
+	"<Cmd>vsplit|terminal<CR>",
+	{ desc = "Vertical split with a terminal buffer" }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>th",
+	"<Cmd>split|resize -12|terminal<CR>",
+	{ desc = "Horizontal split with a terminal buffer" }
+)
+
+-- Unset highlight
+vim.keymap.set({ "n", "v" }, "<Esc>", "<Cmd>nohlsearch<CR>")
+
+-- Clear quickfix list
+vim.keymap.set({ "n", "v" }, "<leader>q", "<Cmd>call setqflist([])<CR><Cmd>cclose<CR>")
