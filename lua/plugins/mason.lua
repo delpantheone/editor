@@ -12,7 +12,15 @@ return {
 			"mason.nvim",
 		},
 		opts = {
-			ensure_installed = { "ts_ls", "cssls", "html", "emmet_language_server", "pyright" },
+			ensure_installed = {
+				"ts_ls",
+				"cssls",
+				"html",
+				"emmet_language_server",
+				"pyright",
+				"tinymist",
+				"rust_analyzer",
+			},
 		},
 	},
 }

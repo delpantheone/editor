@@ -31,6 +31,7 @@ return {
 					"typescript",
 					"tsx",
 					"sql",
+					"typst",
 				},
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -74,6 +75,8 @@ return {
 							["af"] = "@function.outer",
 							["if"] = "@function.inner",
 							["ac"] = "@class.outer",
+							["aa"] = "@parameter.outer",
+							["ia"] = "@parameter.inner",
 							-- you can optionally set descriptions to the mappings (used in the desc parameter of nvim_buf_set_keymap
 							["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
 						},
@@ -96,6 +99,8 @@ return {
 						goto_next_start = {
 							["]f"] = "@function.outer",
 							["]]"] = "@class.outer",
+							["]a"] = "@parameter.outer",
+							["]A"] = "@parameter.inner",
 						},
 						goto_next_end = {
 							["]F"] = "@function.outer",
@@ -104,6 +109,8 @@ return {
 						goto_previous_start = {
 							["[f"] = "@function.outer",
 							["[["] = "@class.outer",
+							["[a"] = "@parameter.outer",
+							["[A"] = "@parameter.inner",
 						},
 						goto_previous_end = {
 							["[F"] = "@function.outer",
@@ -127,7 +134,7 @@ return {
 						floating_preview_opts = {},
 						peek_definition_code = {
 							["K"] = "@function.outer",
-							["K"] = "@class.outer",
+							-- ["K"] = "@class.outer",
 						},
 					},
 				},

@@ -11,12 +11,10 @@ return {
 		sources = {
 			default = { "lsp", "buffer", "path" }, --  "snippets" },
 			per_filetype = {
-				sql = { "dadbod", "snippets", "buffer" },
+				sql = { "snippets", "buffer" },
 			},
 			-- add vim-dadbod-completion to your completion providers
-			providers = {
-				dadbod = { module = "vim_dadbod_completion.blink" },
-			},
+			providers = {},
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},

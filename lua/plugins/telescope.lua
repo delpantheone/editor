@@ -30,6 +30,7 @@ return {
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 		vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "LSP References" })
+		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics" })
 
 		require("telescope").load_extension("ui-select")
 	end,
