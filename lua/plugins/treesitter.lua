@@ -22,6 +22,7 @@ return {
 					"rust",
 					"javascript",
 					"jsdoc",
+					"powershell",
 					"python",
 					"pymanifest",
 					"json",

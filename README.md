@@ -10,20 +10,4 @@ Clone repo with the following command:
 
 ## Windows
 
-After running the above command, create an "init.lua" file in the following directory:
-
-"%USERPROFILE%\Appdata\Local\nvim\"
-
-It should have the following contents:
-
-    local home = os.getenv("HOME") or os.getenv("USERPROFILE")
-    local config_path = home .. "/.config/nvim"
-    local lua_path = config_path .. "/lua/?.lua;" .. config_path .. "/lua/?/init.lua"
-
-    if not string.find(vim.o.runtimepath, config_path, 1, true) then
-      vim.opt.runtimepath:prepend(config_path)
-    end
-
-    package.path = package.path .. ";" .. lua_path
-
-    require('config.lazy')
+    git clone https://github.com/delpantheone/editor.git "%USERPROFILE%\Appdata\Local\nvim\"
