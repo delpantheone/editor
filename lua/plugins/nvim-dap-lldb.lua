@@ -4,6 +4,6 @@ return {
 	dependencies = { "mfussenegger/nvim-dap" },
 	opts = {
 		-- Aponta para o binário LLDB instalado via apk no Dockerfile
-		codelldb_path = "/usr/bin/lldb-vscode",
+		codelldb_path = "/usr/bin/lldb",
 	},
 }
