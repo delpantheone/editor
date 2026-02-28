@@ -1,5 +1,7 @@
 return {
 	"julianolf/nvim-dap-lldb",
 	dependencies = { "mfussenegger/nvim-dap" },
-	opts = { codelldb_path = "/path/to/codelldb" },
+	opts = {
+		codelldb_path = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+	},
 }
