@@ -6,8 +6,7 @@ return {
 			"stylua",
 			"biome",
 			"prettierd",
-			-- "black", -- Já instalado no Alpine
-			"pylint",
+			"ruff",
 			"sqruff",
 		},
 	},
