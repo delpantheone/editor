@@ -1,3 +1,4 @@
+-- lua/plugins/mason-tool-installer.lua
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	opts = {
@@ -5,7 +6,7 @@ return {
 			"stylua",
 			"biome",
 			"prettierd",
-			"black",
+			-- "black", -- Já instalado no Alpine
 			"pylint",
 			"sqruff",
 		},
