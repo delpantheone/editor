@@ -17,10 +17,35 @@ return {
 			inc_rename = false, -- enables an input dialog for inc-rename.nvim
 			lsp_doc_border = false, -- add a border to hover docs and signature help
 		},
+		routes = {
+			-- Redireciona progresso LSP para o fidget
+			{
+				filter = {
+					event = "notify",
+					kind = "progress",
+				},
+				view = "mini", -- backend leve inspirado no fidget
+				opts = { skip = true },
+			},
+			-- Mensagens de diagnóstico LSP ficam com fidget também
+			{
+				filter = {
+					event = "msg_show",
+					kind = "",
+					find = "written",
+				},
+				opts = { skip = true },
+			},
+		},
 		skip = true, -- don't show initial alert with plugin list
 	},
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 		"rcarriga/nvim-notify",
 	},
+	config = function(_, opts)
+		require("noice").setup(opts)
+		-- Configuração automática do fidget após noice
+		require("lazy").load({ plugins = { "fidget.nvim" } })
+	end,
 }
