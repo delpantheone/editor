@@ -20,5 +20,11 @@ if vim.fn.has("wsl") == 1 or vim.fn.has("win32") == 1 then
 end
 
 package.path = package.path .. ";" .. lua_path
+-- Adiciona caminhos do Luarocks do sistema ao Lua do Neovim
+package.path = package.path .. ";/usr/share/lua/5.1/?.lua;/usr/share/lua/5.1/?/init.lua"
+package.path = package.path .. ";" .. vim.fn.expand("~/.local/share/nvim/lazy-rocks/rest.nvim/share/lua/5.1/?.lua")
+package.cpath = package.cpath .. ";/usr/lib/lua/5.1/?.so"
 
+-- Garante que o Treesitter Textobjects seja carregado antes da config
+vim.opt.runtimepath:append("~/.local/share/nvim/lazy/nvim-treesitter-textobjects")
 require("config.lazy")
