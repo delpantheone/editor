@@ -4,7 +4,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"j-hui/fidget.nvim",
 	},
-	build = "luarocks install xml2lua --local && luarocks install mimetypes --local",
+	-- build = "luarocks install xml2lua --local && luarocks install mimetypes --local",
 	opts = {
 		rocks = {
 			hererocks = false,
