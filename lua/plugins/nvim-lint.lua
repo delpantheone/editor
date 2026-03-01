@@ -12,7 +12,7 @@ return {
 			javascript = { "biome" },
 			javascriptreact = { "biome" },
 			typescriptreact = { "biome" },
-			python = { "pylint" },
+			python = { "ruff" },
 			sql = { "sqruff" },
 		}
 
@@ -25,8 +25,8 @@ return {
 				ignore_exitcode = true,
 				parser = require("lint.parser").from_errorformat("%f:%l:c: [%t%n] %m"),
 			},
-			pylint = {
-				cmd = "pylint",
+			ruff = {
+				cmd = "ruff",
 				args = { "--output-format=text", "--score=no", "$FILENAME" },
 				stdin = false,
 				stream = "stdout",

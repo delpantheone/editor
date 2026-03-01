@@ -2,14 +2,13 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		branch = "master",
-		lazy = false, -- Carrega o núcleo do TS imediatamente
+		lazy = false,
 		build = ":TSUpdate",
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects", -- O lazy.nvim já deveria carregar isso
+			"nvim-treesitter/nvim-treesitter-textobjects",
 			"nvim-treesitter/nvim-treesitter-context",
 		},
 		config = function()
-			-- Configuração principal do Treesitter
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
 					"c",
@@ -50,7 +49,7 @@ return {
 						node_decremental = "<BS>",
 					},
 				},
-				textobjects = { -- Aqui está a dependência
+				textobjects = {
 					select = {
 						enable = true,
 						lookahead = true,
@@ -74,14 +73,14 @@ return {
 						set_jumps = true,
 						goto_next_start = {
 							["]f"] = "@function.outer",
-							["]]"] = "@class.outer",
+							["]c"] = "@class.outer",
 							["]a"] = "@parameter.outer",
 							["]A"] = "@parameter.inner",
 						},
 						goto_next_end = { ["]F"] = "@function.outer", ["]["] = "@class.outer" },
 						goto_previous_start = {
 							["[f"] = "@function.outer",
-							["[["] = "@class.outer",
+							["[c"] = "@class.outer",
 							["[a"] = "@parameter.outer",
 							["[A"] = "@parameter.inner",
 						},
