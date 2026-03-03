@@ -9,16 +9,13 @@ return {
 			local dap = require("dap")
 			local dapui = require("dapui")
 
-			-- Config DAP básico
-			vim.keymap.set("n", "<F5>", dap.continue)
-			vim.keymap.set("n", "<F10>", dap.step_over)
-			vim.keymap.set("n", "<F11>", dap.step_into)
-			vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint)
+			vim.keymap.set("n", "<F5>", dap.continue, { desc = "Continue" })
+			vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Step Over" })
+			vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Step Into" })
+			vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
 
-			-- Config DAP-UI
 			dapui.setup()
 
-			-- Auto open/close UI
 			dap.listeners.after.event_initialized["dapui_config"] = function()
 				dapui.open()
 			end

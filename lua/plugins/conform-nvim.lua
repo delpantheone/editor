@@ -2,11 +2,6 @@ return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
-		formatters = {
-			black = {
-				extra_args = { "--line-height", "88" },
-			},
-		},
 		formatters_by_ft = {
 			lua = { "stylua" },
 			typescript = { "biome" },
@@ -15,7 +10,7 @@ return {
 			json = { "biome" },
 			css = { "biome" },
 			markdown = { "prettierd" },
-			python = { "black" },
+			python = { "ruff_format", "ruff_organize_imports" },
 			sql = { "sqruff" },
 		},
 		format_on_save = {

@@ -1,4 +1,3 @@
--- lua/plugins/mason.lua
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -16,11 +15,11 @@ return {
 		},
 		opts = {
 			ensure_installed = {
-				"ts_ls",
+				"vtsls",
 				"cssls",
 				"html",
-				"emmet_language_server",
 				"pyright",
+				"emmet_language_server",
 				"tinymist",
 				"rust_analyzer",
 			},

@@ -7,6 +7,8 @@ return {
 	config = function()
 		local lint = require("lint")
 
+		local mason_bin = vim.fn.stdpath("data") .. "/mason/bin/"
+
 		lint.linters_by_ft = {
 			typescript = { "biome" },
 			javascript = { "biome" },
@@ -16,31 +18,22 @@ return {
 			sql = { "sqruff" },
 		}
 
-		lint.linters = {
-			biome = {
-				cmd = "biome",
-				args = { "check", "$FILENAME" },
-				stdin = false,
-				stream = "stdout",
-				ignore_exitcode = true,
-				parser = require("lint.parser").from_errorformat("%f:%l:c: [%t%n] %m"),
-			},
-			ruff = {
-				cmd = "ruff",
-				args = { "--output-format=text", "--score=no", "$FILENAME" },
-				stdin = false,
-				stream = "stdout",
-				ignore_exitcode = true,
-				parser = require("lint.parser").from_errorformat("%f:%l:c: [%t%n] %m"),
-			},
-			sqruff = {
-				cmd = "sqruff",
-				args = { "lint", "$FILENAME" },
-				stdin = false,
-				stream = "stdout",
-				ignore_exitcode = true,
-				parser = require("lint.parser").from_errorformat("%f:%l:c: [%t%n] %m"),
-			},
+		lint.linters.biome = {
+			cmd = mason_bin .. "biome",
+			args = { "check", "--apply-unsafe", "$FILENAME" },
+			stdin = false,
+			stream = "stdout",
+			ignore_exitcode = true,
+			parser = require("lint.parser").from_errorformat("%f:%l:c: [%t%n] %m"),
+		}
+
+		lint.linters.ruff = {
+			cmd = "ruff",
+			args = { "check", "--force-exclude", "--output-format=text", "--score=no", "$FILENAME" },
+			stdin = false,
+			stream = "stdout",
+			ignore_exitcode = true,
+			parser = require("lint.parser").from_errorformat("%f:%l:c: [%t%n] %m"),
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

@@ -100,7 +100,6 @@ return {
 				},
 			})
 
-			-- Garante que o módulo de textobjects está carregado antes de configurar keymaps
 			local status_ok, ts_repeat_move = pcall(require, "nvim-treesitter.textobjects.repeatable_move")
 			if not status_ok then
 				return

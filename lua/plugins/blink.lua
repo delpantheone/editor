@@ -13,7 +13,6 @@ return {
 			per_filetype = {
 				sql = { "snippets", "buffer" },
 			},
-			-- add vim-dadbod-completion to your completion providers
 			providers = {},
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning" },
