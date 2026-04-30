@@ -30,24 +30,10 @@ vim.keymap.set("n", "<C-r>", function()
 	vim.api.nvim_win_set_cursor(0, { line, pos[2] })
 end, { noremap = true, silent = true })
 
--- Set makeprg
-
-local makeprgs = {
-	python = "python3 %",
-	javascript = "node %",
-}
-
 vim.api.nvim_create_autocmd("QuickFixCmdPre", {
 	pattern = "make",
 	callback = function()
 		vim.fn.setqflist({}, "r") -- Clear list before execution
-	end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = vim.tbl_keys(makeprgs),
-	callback = function(event)
-		vim.bo.makeprg = makeprgs[event.match]
 	end,
 })
 
@@ -65,11 +51,6 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
--- FullScreen helping buffers
+-- Start norm
 
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = "help",
--- 	callback = function()
--- 		vim.cmd("only")
--- 	end,
--- })
+vim.keymap.set({"n", "v"}, "<leader>i", ":norm @", {desc = "Norm @"})

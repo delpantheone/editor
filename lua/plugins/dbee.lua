@@ -10,6 +10,6 @@ return {
 		require("dbee").setup()
 	end,
 	keys = {
-		{ "<leader>du", "<cmd>Dbee toggle<CR>", desc = "Toggle DBUI" },
+		{ "<leader>u", "<cmd>Dbee toggle<CR>", desc = "Toggle DBUI" },
 	},
 }

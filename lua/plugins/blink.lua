@@ -1,21 +1,51 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets" },
-	version = "1.*",
+	dependencies = {
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+	},
+	version = "v0.*",
 	opts = {
-		keymap = { preset = "default" },
-		appearance = {
-			nerd_font_variant = "mono",
+		snippets = {
+			preset = "luasnip",
 		},
-		completion = { documentation = { auto_show = false } },
-		sources = {
-			default = { "lsp", "buffer", "path" }, --  "snippets" },
-			per_filetype = {
-				sql = { "snippets", "buffer" },
+		keymap = {
+			preset = "none",
+			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+			["<C-e>"] = { "hide" },
+			["<CR>"] = { "accept", "fallback" },
+
+			["<C-p>"] = { "select_prev", "fallback" },
+			["<C-n>"] = { "select_next", "fallback" },
+
+			["<Tab>"] = {
+				function(cmp)
+						return cmp.select_next()
+				end,
+				"fallback",
 			},
-			providers = {},
+			["<S-Tab>"] = {
+				function(cmp)
+						return cmp.select_prev()
+				end,
+				"fallback",
+			},
 		},
+		signature = { enabled = true },
+		completion = {
+			documentation = { auto_show = true}, --, auto_show_delay_ms = 500 },
+			menu = {
+				auto_show = true,
+				draw = {
+					treesitter = { "lsp" },
+					columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind" } },
+				},
+			},
+		},
+		sources = {
+          default = { 'lsp', 'path', 'snippets', 'buffer' },
+		},
+
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
-	opts_extend = { "sources.default" },
 }

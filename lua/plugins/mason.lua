@@ -15,11 +15,7 @@ return {
 		},
 		opts = {
 			ensure_installed = {
-				"vtsls",
 				"cssls",
-				"html",
-				"pyright",
-				"emmet_language_server",
 				"tinymist",
 				"rust_analyzer",
 			},

@@ -1,29 +1,29 @@
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
-	opts = {
-		formatters_by_ft = {
-			lua = { "stylua" },
-			typescript = { "biome" },
-			javascript = { "biome" },
-			html = { "prettierd" },
-			json = { "biome" },
-			css = { "biome" },
-			markdown = { "prettierd" },
-			python = { "ruff_format", "ruff_organize_imports" },
-			sql = { "sqruff" },
-		},
-		format_on_save = {
-			lsp_format = "fallback",
-			timeout_ms = 500,
-		},
-	},
+	config = function()
+		local conform = require("conform")
 
-	vim.keymap.set({ "n", "v" }, "<leader>cf", function()
-		require("conform").format({
-			lsp_fallback = true,
-			async = false,
-			timeout_ms = 500,
+		conform.setup({
+			formatters_by_ft = {
+				lua = { "stylua" },
+				typescript = { "biome-check" },
+				javascript = { "biome-check" },
+				typescriptreact = { "biome-check" },
+				javascriptreact = { "biome-check" },
+				json = { "biome" },
+				css = { "biome" },
+				python = { "ruff_organize_imports", "ruff_format" },
+				sql = { "sqruff" },
+			},
 		})
-	end, { desc = "Format file or range (in visual mode)" }),
+
+		vim.keymap.set({ "n", "v" }, "<leader>cf", function()
+			conform.format({
+				lsp_fallback = true,
+				async = false,
+				timeout_ms = 500,
+			})
+		end, { desc = "Format file or range (in visual mode)" })
+	end,
 }

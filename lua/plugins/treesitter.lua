@@ -9,6 +9,22 @@ return {
 			"nvim-treesitter/nvim-treesitter-context",
 		},
 		config = function()
+			require("treesitter-context").setup({
+				enable = true,
+				max_lines = 3,
+				min_window_height = 0,
+				line_numbers = true,
+				multiline_threshold = 20,
+				trim_scope = "outer",
+				mode = "cursor",
+				separator = nil,
+				zindex = 20,
+			})
+
+			vim.keymap.set("n", "[C", function()
+				require("treesitter-context").go_to_context(vim.v.count1)
+			end, { silent = true, desc = "Pular para o topo do contexto atual" })
+
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
 					"c",
@@ -86,11 +102,6 @@ return {
 						},
 						goto_previous_end = { ["[F"] = "@function.outer", ["[]"] = "@class.outer" },
 					},
-					swap = {
-						enable = true,
-						swap_next = { ["<leader>a"] = "@parameter.inner" },
-						swap_previous = { ["<leader>A"] = "@parameter.inner" },
-					},
 					lsp_interop = {
 						enable = true,
 						border = "none",
@@ -105,6 +116,11 @@ return {
 				return
 			end
 
+			local next_diag, prev_diag =
+				ts_repeat_move.make_repeatable_move_pair(vim.diagnostic.goto_next, vim.diagnostic.goto_prev)
+
+			vim.keymap.set("n", "]d", next_diag, { desc = "Next diagnostic" })
+			vim.keymap.set("n", "[d", prev_diag, { desc = "Prev diagnostic" })
 			vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
 			vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
 			vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
