@@ -21,5 +21,4 @@ end
 
 package.path = package.path .. ";" .. lua_path
 
--- vim.opt.runtimepath:append("~/.local/share/nvim/lazy/nvim-treesitter-textobjects")
 require("config.lazy")

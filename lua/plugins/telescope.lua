@@ -57,12 +57,10 @@ return {
 		vim.keymap.set("n", "<leader>S", builtin.lsp_dynamic_workspace_symbols, { desc = "Dynamic Workspace Symbols" })
 		vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Telescope find files" })
 		vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Telescope buffers" })
-		-- vim.keymap.set("n", "<leader>r", builtin.lsp_references, { desc = "LSP References" })
+		vim.keymap.set("n", "<leader>r", builtin.lsp_references, { desc = "LSP References" })
 		vim.keymap.set("n", "<leader>d", builtin.diagnostics, { desc = "Diagnostics" })
-		vim.keymap.set("n", "<leader>p", telescope.extensions.projects.projects, { desc = "List Projects" })
 		vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code Actions" })
 
 		telescope.load_extension("ui-select")
-		telescope.load_extension("projects")
 	end,
 }
